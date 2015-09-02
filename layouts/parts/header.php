@@ -6,7 +6,6 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="description" content="meta desc">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" type="text/css" href="css/main.css">
         <?php $this->head(isset($entity) ? $entity : null); ?>
     </head>
 <body <?php $this->bodyProperties() ?> >
@@ -22,7 +21,7 @@
         <div class="row">
             <div class="small-1 columns"><a href="#" class="action-secondary-menu"><i class="icon-menu"></i></a></div>
             <div class="small-14 columns">
-				<h1 class="logo"><a href="#"><img src="<?php $this->asset('./img/logo-cultura-viva.svg'); ?>"></a></h1>
+				<h1 class="logo"><a href="#"><img src="<?php $this->asset('img/logo-cultura-viva.svg'); ?>"></a></h1>
             </div>
         <div class="small-9 columns">
             <ul class="inline-list main-menu">
