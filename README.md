@@ -82,6 +82,13 @@ Depois de configurar, você precisar compilar os assets. Existem outras tarefas 
 
 ``` ./node_modules/gulp/bin/gulp.js fy ```
 
+### Configurando tema no Mapas Culturais
+
+```
+        'namespaces' => array_merge( $config['namespaces'], ['CulturaViva' => BASE_PATH . '/../../rede-cultura-viva/']),
+		'themes.active' => 'CulturaViva',
+```
+
 ### Usando autenticação oAuth
 
 Configurando o [Login Cidadão](https://github.com/PROCERGS/login-cidadao/tree/dev) para autenticar no mapa.
