@@ -1,4 +1,8 @@
 <?php $this->part('header'); ?>
+<?php echo $TEMPLATE_CONTENT; ?>
+
+<div id="infraestrutura"></div>
+
 <div class="box-slideshow">
       <div class="large-offset-3 large-18 large-centered columns content text-center"><img src="<?php $this->asset('img/logo-cultura-viva-sombra.svg'); ?>">
         <p>Como faço para me autodeclarar um Ponto de Cultura? Insira seus dados no Cadastro e a partir de uma análise simplificada a ser feita pelo Ministério da Cultura, a entidade ou coletivo passará fazer parte da Rede Cultura Viva, um ambiente de trocas de experiências, serviços, conhecimentos e informações. E se você já é Ponto de Cultura entre na rede e faça parte do Circuito Cultura Viva.</p><a href="#" class="button">entrar na rede</a>
@@ -35,5 +39,4 @@
         <p>Iniciativas ligadas à cultura de base comunitária, Indígenas, Quilombolas, de Matriz Africana, economia solidária, produção cultural, urbana e periférica, cultura digital, entre outras.</p>
       </div>
     </div>
-<?php echo $TEMPLATE_CONTENT; ?>
 <?php $this->part('footer'); ?>

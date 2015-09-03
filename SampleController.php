@@ -12,7 +12,11 @@ class SampleController extends \MapasCulturais\Controller{
 
     function GET_test() {
         var_dump($this->data);
-	}
+    }
+
+    function POST_saveInfra() {
+		$this->requireAuthentication();
+    }
 
 	function ALL_saveJson1() {
 		$this->requireAuthentication();
@@ -25,6 +29,5 @@ class SampleController extends \MapasCulturais\Controller{
 		$agents = $app->user->agents; // agente e agente coletivo
 
 		var_dump($app->user->cultura_viva_ids);
-		//$profile->dump();
 	}
 }

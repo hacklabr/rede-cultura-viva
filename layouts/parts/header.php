@@ -24,11 +24,40 @@
 				<h1 class="logo"><a href="#"><img src="<?php $this->asset('img/logo-cultura-viva.svg'); ?>"></a></h1>
             </div>
         <div class="small-9 columns">
+
+        <?php if ($app->auth->isUserAuthenticated()): ?>
             <ul class="inline-list main-menu">
+                <?php if ($app->user->profile->avatar): ?>
+                    <img src="<?php echo $app->user->profile->avatar->transform('avatarSmall')->url; ?>" />
+                <?php else: ?>
+                    <img src="<?php $this->asset('img/avatar.png'); ?>" />
+                <?php endif; ?>
+                    <li>
+                        <?php if($app->getConfig('auth.provider') === 'Fake'): ?>
+                            <a href="<?php echo $app->createUrl('auth'); ?>">Trocar Usuário</a>
+                            <?php if(!empty($fake_options)) echo $fake_options; ?>
+                        <?php endif; ?>
+                        <a href="<?php echo $app->createUrl('auth', 'logout'); ?>">Sair</a>
+                    </li>
+
+
                 <li><a href="./criterios.html"><i class="icon-user"></i><span>Entrar</span></a></li>
                 <li><a href="#"><i class="icon-map"></i><span>Mapa</span></a></li>
                 <li><a href="#"><i class="icon-calendar"></i><span>Eventos</span></a></li>
             </ul>
+
+        <?php else: ?>
+            <li class="login">
+                <a href="<?php echo $app->createUrl('panel') ?>">
+                    <div class="icon icon-login"></div>
+                    <div class="menu-item-label">Entrar</div>
+                </a>
+                <?php if(!empty($fake_options)): ?>
+                    <ul class="submenu" style="margin: 2px 0 0 -12px"><li><?php echo str_ireplace("Login\n        </a>", 'Login</a> |', $fake_options) ?></li></ul>
+                <?php endif; ?>
+            </li>
+            <!--.login-->
+        <?php endif; ?>
         </div>
     </div>
 </div>

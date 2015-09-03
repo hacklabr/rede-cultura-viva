@@ -43,7 +43,7 @@ var Sections = function() {
 
 
 var Agent = {
-    update: function (id) {
+    updateInfra: function (id, data) {
         // var data = new FormData();
         // data.append('longDescription', 'testes long');
         // data.append('shortDescription', 'testes short');
@@ -58,9 +58,11 @@ var Agent = {
         return m.request({
             url:'/agent/single/' + id, 
             method: 'PATCH',
-            data: { 'chave': '' },
+            data: { 'chave': data },
             config: xhrConfig,
-            serialize: function (data) { return m.route.buildQueryString(data); }
+            serialize: function (data) { return "chave=lucas,testes";
+                m.route.buildQueryString(data);
+            }
         });
     }
 };
@@ -69,30 +71,71 @@ var Agent = {
 var Demo = {
     //controller
     controller: function() {
-//      var pages = Page.list();
+        // var pages = Page.list();
         // var ids = CulturaViva.ids;
         // var agent = Agent.update(ids.agente_individual).then(function (data) {
         //  console.log(data);
         // });
+        var infraOptions = m.prop([
+            'Acesso à internet',
+            'Sala de aula',
+            'Auditório',
+            'Teatro',
+            'Estúdio',
+            'Palco',
+            'Galpão',
+            'Hackerspace',
+            'Casa',
+            'Apartamento',
+            'Cozinha',
+            'Garagem',
+            'Jardim',
+            'Bar',
+            'Laboratório',
+            'Gráfica',
+            'Loja'
+        ]);
+
+        var dataToSave = m.prop([]);
+
+        m.request({
+            method:'GET',
+            data:{
+                '@select': 'chave',
+                'chave': 'like(*lucas*)'
+            },
+            url: '/api/agent/find'
+        }).then(function(data) {
+            console.log(data);
+        });
+
         return {
-//          pages: pages,
-            // rotate: function() {
-            //  pages().push(pages().shift());
-            // }
+            dataToSave: dataToSave,
+            infraOptions: infraOptions,
+            addToSave: function () {
+                dataToSave().push(this.value);
+            },
+            save: function(ctrl) {
+                Agent.updateInfra(10,ctrl.dataToSave());
+            }
         }
     },
 
+
     //view
     view: function(ctrl) {
-        // return m("div", [
-        //  ctrl.pages().map(function(page) {
-        //      return m("a", {href: page.url}, page.title);
-        //  }),
-        //  m("button", {onclick: ctrl.rotate}, "Rotate links")
-        // ]);
+        return m("div", [
+            ctrl.infraOptions().map(function(value) {
+                return [
+                    m('input[type=checkbox][name=infraestrutura][value='+value+']', {onclick: ctrl.addToSave}),
+                    m('label', value)
+                ];
+            }),
+            m("button", {onclick: ctrl.save.bind(this, ctrl)}, "Salvar")
+        ]);
     }
 };
 
 
 //initialize
-m.mount(document.getElementById("example"), Demo);
+m.mount(document.getElementById("infraestrutura"), Demo);

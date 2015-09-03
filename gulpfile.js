@@ -132,4 +132,5 @@ gulp.task('fy', ['browserify', 'jade', 'stylus', 'fonts', 'imagemin', 'watchfy',
 gulp.task('build', ['js', 'jade', 'stylus', 'imagemin', 'fonts', 'deploy']);
 
 // Build and Deploy
-gulp.task('buildfy', ['browserify', 'jade', 'stylus', 'imagemin', 'fonts', 'deploy']);
+gulp.task('buildfy', ['browserify', 'jade', 'stylus', 'imagemin', 'fonts']);
+          //, 'deploy']);
