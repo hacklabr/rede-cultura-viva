@@ -67,8 +67,19 @@ var Agent = {
     }
 };
 
+var List = {
+    controller: function () {
 
-var Demo = {
+    },
+
+    view: function (ctrl) {
+        return m('ul', [
+            m('li')
+        ]);
+    }
+};
+
+var Edit = {
     //controller
     controller: function() {
         // var pages = Page.list();
@@ -108,7 +119,6 @@ var Demo = {
         }).then(function(data) {
             console.log(data);
         });
-
         return {
             dataToSave: dataToSave,
             infraOptions: infraOptions,
@@ -124,11 +134,13 @@ var Demo = {
 
     //view
     view: function(ctrl) {
-        return m("div", [
+        return m("ul", [
             ctrl.infraOptions().map(function(value) {
                 return [
-                    m('input[type=checkbox][name=infraestrutura][value='+value+']', {onclick: ctrl.addToSave}),
-                    m('label', value)
+                    m('li', [
+                        m('input[type=checkbox][name=infraestrutura][value='+value+']', {onclick: ctrl.addToSave}),
+                        m('label', value)
+                    ])
                 ];
             }),
             m("button", {onclick: ctrl.save.bind(this, ctrl)}, "Salvar")
@@ -138,4 +150,12 @@ var Demo = {
 
 
 //initialize
-m.mount(document.getElementById("infraestrutura"), Demo);
+
+//setup routes to start w/ the `#` symbol
+m.route.mode = "hash";
+
+//define a route
+m.route(document.getElementById("infraestrutura"), "/", {
+    "/listar": List,
+    "/ponto_cultura": Edit
+});

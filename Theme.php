@@ -17,7 +17,7 @@ class Theme extends \MapasCulturais\Theme{
         $app->applyHookBoundTo($this, 'theme.init:before');
 
         $app->hook('<<GET|POST|PUT|DELETE>>(<<*>>.<<*>>):before', function() use ($app){
-            $actions = array('sample', 'site', 'auth', 'user');
+            $actions = array('ponto_cultura', 'site', 'auth', 'user');
             // /agents/single/{id} : PUT
             if (!in_array ($this->id, $actions)) {
                 $app->pass();
@@ -93,7 +93,7 @@ class Theme extends \MapasCulturais\Theme{
     public function register() {
         $app = App::i();
 
-        $app->registerController('sample', 'CulturaViva\SampleController');
+        $app->registerController('ponto_cultura', 'CulturaViva\PontoCulturaController');
         //$url = $app->createUrl('site');
         $def = new \MapasCulturais\Definitions\Metadata('cultura_viva_ids', [
             'label' => 'Id do Agente, Agente Coletivo e Registro da inscrição',

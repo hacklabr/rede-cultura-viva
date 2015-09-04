@@ -3,15 +3,16 @@ namespace CulturaViva;
 use MapasCulturais\Traits;
 use MapasCulturais\Entities;
 
-class SampleController extends \MapasCulturais\Controller{
+class PontoCulturaController extends \MapasCulturais\Controller{
 
 		// upload do agent - avatar
 		// upload do agent coletivo - avatar
 		// upload de portfolio - 
 
 
-    function GET_test() {
-        var_dump($this->data);
+    function GET_index() {
+		$this->requireAuthentication();
+		$this->render('index');
     }
 
     function POST_saveInfra() {
