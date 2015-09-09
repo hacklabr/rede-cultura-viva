@@ -155,7 +155,7 @@ var Edit = {
 m.route.mode = "hash";
 
 //define a route
-m.route(document.getElementById("infraestrutura"), "/", {
-    "/listar": List,
+m.route(document.getElementById("infraestrutura"), "/ponto_cultura/", {
+    "/": List,
     "/ponto_cultura": Edit
 });
