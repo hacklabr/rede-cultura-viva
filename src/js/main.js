@@ -69,7 +69,7 @@ var Agent = {
 
 var List = {
     controller: function () {
-		console.log('nesse momento vamos montar a verificação da existência do cnpj');
+		console.log('nesse momento vamos montar a verificação da existência do cnpj 2222');
     },
 
     view: function (ctrl) {

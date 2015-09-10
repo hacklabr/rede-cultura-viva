@@ -4,13 +4,26 @@ Ferramenta permitirá mapeamento e articulação entre Pontos de Cultura e funci
 
 [Mais detalhes](www.brasil.gov.br/cultura/2015/06/primeira-versao-de-cadastro-de-pontos-de-cultura-e-apresentada)
 
+## Arquitetura
+
+A base da rede cultura viva é o [Mapas Culturais](https://github.com/hacklabr/mapasculturais). 
+
+Neste repositório você encontrará dois temas para ele que funcionarão em paralelo para atender as necessidades da rede:
+
+1. Navegação por mapa, extendendo a funcionalidade atual do tema principal; 
+2. Extender e incrementar o cadastro, tornando possível o preenchimento de uma gama de novas informações referentes ao Ponto de Cultura.
+
+Além dessas duas formas de visualizar os pontos de cultura, existe uma capa editorial.
+
+Ela é mantida a partir de uma instalação do wordpress, com a intenção de trazer conteúdo sobre o que acontece na rede.
+
 ## Guia de desenvolvimento
 
 A construção da ferramenta foi utilizado o [Mapas Culturais](https://github.com/hacklabr/mapasculturais). Esse guia não existiria sem a ajuda do @rafaelchavesfreitas.
 
 A partir da experiência adquirida durante a construção do tema, alguns detalhes me chamaram atenção na estrutura do Mapas Culturais e apresentarei a seguir.
 
-### Iniciando
+### Configurando as aplicações da rede
 
 A maneira mais rápida de iniciar o desenvolvimento é clonar o repositório do mapas culturais e subir uma isntância do ubuntu com todas as dependências instaladas.
 
@@ -84,15 +97,11 @@ Depois de configurar, você precisar compilar os assets. Existem outras tarefas 
 
 ### Configurando tema no Mapas Culturais
 
-```
-        'namespaces' => array_merge( $config['namespaces'], ['CulturaViva' => BASE_PATH . '/../../rede-cultura-viva/']),
-		'themes.active' => 'CulturaViva',
-```
+Está disponível na raiz do tema um exemplo de como pode ser o arquivo de configuração. Para o desenvolvimento o ideal é desenvolvê-lo.
 
 ### Usando autenticação oAuth
 
-Configurando o [Login Cidadão](https://github.com/PROCERGS/login-cidadao/tree/dev) para autenticar no mapa.
-
+Configurando o [Login Cidadão](https://github.com/PROCERGS/login-cidadao/tree/dev) para autenticar no mapa. Ao utilizar a configuração de exemplo que tem no dispnível no tema, o módulo de autenticação Fake é o padrão.
 
 ### Controllers
 
