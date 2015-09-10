@@ -69,7 +69,7 @@ var Agent = {
 
 var List = {
     controller: function () {
-
+		console.log('nesse momento vamos montar a verificação da existência do cnpj');
     },
 
     view: function (ctrl) {
@@ -153,9 +153,11 @@ var Edit = {
 
 //setup routes to start w/ the `#` symbol
 m.route.mode = "hash";
-
-//define a route
-m.route(document.getElementById("infraestrutura"), "/ponto_cultura/", {
-    "/": List,
-    "/ponto_cultura": Edit
-});
+var wizard = document.getElementById("wizard");
+if (wizard) {
+	//define a route
+	m.route(wizard, "/", {
+		"/": List,
+		"/ponto_cultura": Edit
+	});
+}
