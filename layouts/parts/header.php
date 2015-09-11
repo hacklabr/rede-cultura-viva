@@ -17,15 +17,9 @@
             <li><a style="font-family:sans,sans-serif; text-decoration:none; color:white;" href="http://epwg.governoeletronico.gov.br/barra/atualize.html">Atualize sua Barra de Governo</a></li>
         </ul>
     </div>
-    <div class="box-menu">
-        <div class="row">
-            <div class="small-1 columns"><a href="#" class="action-secondary-menu"><i class="icon-menu"></i></a></div>
-            <div class="small-14 columns">
-				<h1 class="logo"><a href="<?php echo $app->createUrl('site'); ?>"><img src="<?php $this->asset('img/logo-cultura-viva.svg'); ?>"></a></h1>
-            </div>
-        <div class="small-9 columns">
-
-        <ul class="inline-list main-menu">
+    <div class="header-menu">
+		<h1 class="logo"><a href="<?php echo $app->createUrl('site'); ?>"><img src="<?php $this->asset('img/logo-cultura-viva.svg'); ?>"></a></h1>
+        <ul class="main-menu">
 			<li><a href="#"><i class="icon-map"></i><span>Mapa</span></a></li>
 			<li><a href="#"><i class="icon-calendar"></i><span>Eventos</span></a></li>
         <?php if ($app->auth->isUserAuthenticated()): ?>
@@ -54,6 +48,4 @@
             <!--.login-->
         <?php endif; ?>
 		</ul>
-        </div>
-    </div>
-</div>
+	</div>

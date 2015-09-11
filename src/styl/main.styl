@@ -22,23 +22,19 @@
 
 normalize()
 
-@import "foundation"
-@import "icons"
-@import "slideshow"
-@import "circle-progress"
-@font-face
-  font-family: "DroidSans"
-  font-weight: normal
-  src: url("/assets/fonts/DroidSans-webfont.eot")
-  src: url("/assets/fonts/DroidSans-webfont.eot?#iefix") format("embedded-opentype"), url("/assets/fonts/DroidSans-webfont.woff") format("woff"), url("/assets/fonts/DroidSans-webfont.ttf") format("truetype"), url("/assets/fonts/DroidSans-webfont.svg#DroidSans") format("svg")
+@import "generics/fonts"
+@import "generics/icons"
 
-@font-face
-  font-family: "DroidSans"
-  font-weight: bold
-  src: url("/assets/fonts/DroidSans-Bold-webfont.eot")
-  src: url("/assets/fonts/DroidSans-Bold-webfont.eot?#iefix") format("embedded-opentype"), url("/assets/fonts/DroidSans-Bold-webfont.woff") format("woff"), url("/assets/fonts/DroidSans-Bold-webfont.ttf") format("truetype"), url("/assets/fonts/DroidSans-Bold-webfont.svg#DroidSans") format("svg")
+@import "components/slideshow"
+@import "circle-progress"
 
 amarelo = #FBED1D
+cad-amarelo  = #F7C908
+cad-azul     = #075579
+cad-vermelho = #D82E5F
+cad-verde    = #417034
+cad-laranja  = #F7931E
+cad-roxo     = #7B4AAF
 
 html,
 body
@@ -49,41 +45,36 @@ body
     background: url('/assets/img/bg.png'), linear-gradient(to right, rgba(7,85,121,1) 0%, rgba(7,137,121,1) 51%, rgba(7,85,121,1) 100%)
 p
     color: #fff
+
 .button
     color: #078979
     border-radius: .5em
     font-weight: bold
 
-.box-menu
-    background-color: amarelo
-    border-top: 4px solid #075579
-    .action-secondary-menu
-        font-size: 1.7em
-        i
-            line-height: 3.2em
-    .logo
-        margin: .4em 0
-        font-size: 1em
-        max-width: 10em
+.logo
+    margin: .4em 0
+    font-size: 0
+    max-width: 10em
+    max-height: 1em
     a
         color: #F7931E
-    .main-menu
+.main-menu
+    margin: 0
+    border-right: 1px solid #E2D02B
+    li
+        float: right
         margin: 0
-        border-right: 1px solid #E2D02B
-        li
-            float: right
-            margin: 0
-            width: 5em
-        a
-            text-align: center
-            padding: .8em 0
-            border-left: 1px solid #E2D02B
-            &:hover
-                color: #078979
-        i
-            font-size: 2em
-            line-height: 1em
-            display: block
+        width: 5em
+    a
+        text-align: center
+        padding: .8em 0
+        border-left: 1px solid #E2D02B
+        &:hover
+            color: #078979
+    i
+        font-size: 2em
+        line-height: 1em
+        display: block
 h1,
 h2,
 h3,
@@ -120,12 +111,6 @@ h6
             font-size: 1.2em
 
 
-cad-amarelo  = #F7C908
-cad-azul     = #075579
-cad-vermelho = #D82E5F
-cad-verde    = #417034
-cad-laranja  = #F7931E
-cad-roxo     = #7B4AAF
 
 .box-status-cadastro
     .head
