@@ -1,5 +1,11 @@
 var m = require('mithril');
+var AutoDeclaracao = require('components/AutoDeclaracao');
+var wizard = document.getElementById("wizard");
 
+if (wizard) {
+	m.mount(wizard, AutoDeclaracao);
+}
+/*
 var Responsavel = function (data) {
     this.nome = m.prop(data.nome || '');
     this.rg = m.prop(data.rg);
@@ -18,6 +24,25 @@ var Responsavel = function (data) {
     this.perfil_twitter = m.prop(data.perfil_twitter);
     this.perfil_gplus = m.prop(data.perfil_gplus);
 }
+var infraOptions = m.prop([
+	'Acesso à internet',
+	'Sala de aula',
+	'Auditório',
+	'Teatro',
+	'Estúdio',
+	'Palco',
+	'Galpão',
+	'Hackerspace',
+	'Casa',
+	'Apartamento',
+	'Cozinha',
+	'Garagem',
+	'Jardim',
+	'Bar',
+	'Laboratório',
+	'Gráfica',
+	'Loja'
+]);
 
 var Sections = function() {
     this.Responsavel = m.prop({
@@ -34,130 +59,4 @@ var Sections = function() {
     });
     // return m.request({method: "GET", url: "pages.json"});
 };
-
-
-
-
-
-
-
-
-var Agent = {
-    updateInfra: function (id, data) {
-        // var data = new FormData();
-        // data.append('longDescription', 'testes long');
-        // data.append('shortDescription', 'testes short');
-        // data.append('location', [0, 0]);
-        // data.append('endereco', 'testes e');
-        // data.append('terms', {area: ['Arqueologia']});
-        var xhrConfig = function(xhr) {
-            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-            xhr.setRequestHeader("X_REQUESTED_WITH", "XMLHttpRequest");
-        }
-
-        return m.request({
-            url:'/agent/single/' + id, 
-            method: 'PATCH',
-            data: { 'chave': data },
-            config: xhrConfig,
-            serialize: function (data) { return "chave=lucas,testes";
-                m.route.buildQueryString(data);
-            }
-        });
-    }
-};
-
-var List = {
-    controller: function () {
-		console.log('nesse momento vamos montar a verificação da existência do cnpj 2222');
-    },
-
-    view: function (ctrl) {
-        return m('ul', [
-            m('li')
-        ]);
-    }
-};
-
-var Edit = {
-    //controller
-    controller: function() {
-        // var pages = Page.list();
-        // var ids = CulturaViva.ids;
-        // var agent = Agent.update(ids.agente_individual).then(function (data) {
-        //  console.log(data);
-        // });
-        var infraOptions = m.prop([
-            'Acesso à internet',
-            'Sala de aula',
-            'Auditório',
-            'Teatro',
-            'Estúdio',
-            'Palco',
-            'Galpão',
-            'Hackerspace',
-            'Casa',
-            'Apartamento',
-            'Cozinha',
-            'Garagem',
-            'Jardim',
-            'Bar',
-            'Laboratório',
-            'Gráfica',
-            'Loja'
-        ]);
-
-        var dataToSave = m.prop([]);
-
-        m.request({
-            method:'GET',
-            data:{
-                '@select': 'chave',
-                'chave': 'like(*lucas*)'
-            },
-            url: '/api/agent/find'
-        }).then(function(data) {
-            console.log(data);
-        });
-        return {
-            dataToSave: dataToSave,
-            infraOptions: infraOptions,
-            addToSave: function () {
-                dataToSave().push(this.value);
-            },
-            save: function(ctrl) {
-                Agent.updateInfra(10,ctrl.dataToSave());
-            }
-        }
-    },
-
-
-    //view
-    view: function(ctrl) {
-        return m("ul", [
-            ctrl.infraOptions().map(function(value) {
-                return [
-                    m('li', [
-                        m('input[type=checkbox][name=infraestrutura][value='+value+']', {onclick: ctrl.addToSave}),
-                        m('label', value)
-                    ])
-                ];
-            }),
-            m("button", {onclick: ctrl.save.bind(this, ctrl)}, "Salvar")
-        ]);
-    }
-};
-
-
-//initialize
-
-//setup routes to start w/ the `#` symbol
-m.route.mode = "hash";
-var wizard = document.getElementById("wizard");
-if (wizard) {
-	//define a route
-	m.route(wizard, "/", {
-		"/": List,
-		"/ponto_cultura": Edit
-	});
-}
+*/
