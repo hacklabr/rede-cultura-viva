@@ -11,9 +11,9 @@ var CompletarPerfil = {
 			title        : 'Inclua os dados da Entidade responsável pelo Ponto de Cultura',
 			sub_title    : ''
 		};
-		return [
+		return m('div', [
 			m.component(BannerComTitulo, state)
-		];
+		]);
 	}
 };
 

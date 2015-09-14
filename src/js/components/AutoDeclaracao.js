@@ -1,24 +1,20 @@
 var m = require('mithril');
+var _ = require('underscore');
 var Carregando = require('views/Carregando');
 var InformarCNPJ = require('pages/InformarCNPJ');
 var CompletarPerfil = require('pages/CompletarPerfil');
 
 var AutoDeclaracao = {
-	controller: function() {
-		this.temCNPJ = true;
-
-		var component = m.component(Carregando);
-		if (this.temCNPJ) {
-			component = m.component(CompletarPerfil, {name: "world"}, "this is a test");
-			var ctrl = new component.controller(); // logs "world", "this is a test"
-		} else {
-			component = m.component(InformarCNPJ, {name: "world"}, "this is a test");
-			var ctrl = new component.controller(); // logs "world", "this is a test"
-		}
-		this.subview = component.view(ctrl);
+	controller: function(args) {
+		this.temCNPJ = m.prop(false);
+		//var component = m.component(Carregando);
 	},
 	view: function(ctrl) {
-		return ctrl.subview;
+		if (ctrl.temCNPJ()) {
+			return m.component(CompletarPerfil);
+		} else {
+			return m.component(InformarCNPJ, {temCNPJ: ctrl.temCNPJ});
+		}
 	}
 };
 
