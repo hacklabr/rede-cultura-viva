@@ -5,10 +5,9 @@ var CompletarPerfil = require('pages/CompletarPerfil');
 
 var AutoDeclaracao = {
 	controller: function() {
-		this.temCNPJ = false;
+		this.temCNPJ = true;
 
-		var component = ctrl = {};
-		component.view = Carregando;
+		var component = m.component(Carregando);
 		if (this.temCNPJ) {
 			component = m.component(CompletarPerfil, {name: "world"}, "this is a test");
 			var ctrl = new component.controller(); // logs "world", "this is a test"

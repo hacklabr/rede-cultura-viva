@@ -1,12 +1,13 @@
 var m = require('mithril');
-
+var BannerComTitulo = require('views/BannerComTitulo');
 
 var InformarCNPJ = {
-	controller: function() {
-
-	},
+	// controller: function() {
+	// },
 	view: function(ctrl) {
-		return m('h2', 'informar cnpj');
+		return [
+			m.component(BannerComTitulo)
+		];
 	}
 };
 
