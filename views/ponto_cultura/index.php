@@ -1,2 +1,2 @@
 <?php $this->layout = 'home'; ?>
-<div id="wizard"></div>
+<div class="wizard" id="wizard"></div>

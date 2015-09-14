@@ -1,18 +1,16 @@
 var m = require('mithril');
 var BannerComTitulo = require('views/BannerComTitulo');
+var SecoesComplementares = require('models/SecoesComplementares');
+var NavSecaoComplementar = require('components/NavSecaoComplementar');
+
 var CompletarPerfil = {
-	// controller: function() {
-	// },
+	controller: function() {
+		this.index_secao_active = m.prop(0);
+	},
 	view: function(ctrl) {
-		var state = {
-			style        : {'background-color':'#D82E5F'},
-			icon         :'.icon-key',
-			section_name : 'dados da entidade',
-			title        : 'Inclua os dados da Entidade responsável pelo Ponto de Cultura',
-			sub_title    : ''
-		};
 		return m('div', [
-			m.component(BannerComTitulo, state)
+			m.component(BannerComTitulo, SecoesComplementares[ctrl.index_secao_active()]),
+			m.component(NavSecaoComplementar, { SecoesComplementares : SecoesComplementares }, ctrl.index_secao_active ),
 		]);
 	}
 };

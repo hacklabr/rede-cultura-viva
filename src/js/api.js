@@ -13,7 +13,7 @@ var ApiMapas = {
         }).then(function(data) {
             console.log(data);
         });
-	}
+	},
 
     update: function (id, data) {
         // var data = new FormData();
