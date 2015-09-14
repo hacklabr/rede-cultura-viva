@@ -1,4 +1,4 @@
 <?php $this->layout = 'home'; ?>
-<div class="content">
+<div class="container">
 	<div id="wizard"></div>
 </div>
