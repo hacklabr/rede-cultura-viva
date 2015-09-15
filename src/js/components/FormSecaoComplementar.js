@@ -2,13 +2,14 @@ var m = require('mithril');
 
 var FormSecaoComplementar = {
 
-	controller: function (args, extra) {
-		this.component = args.SecaoComplementar.form;
-	},
+	// controller: function (args, extra) {
+	// 	console.log(args, extra());
+	// 	this.component = m.prop(args.form);
+	// },
 
-	view: function (ctrl) {
+	view: function (ctrl, args) {
 		return m('.form-content', [
-			m.component(ctrl.component)
+			m.component(args.form)
 		]);
 	}
 };

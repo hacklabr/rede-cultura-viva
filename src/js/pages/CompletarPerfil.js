@@ -16,7 +16,8 @@ var CompletarPerfil = {
 							{ SecoesComplementares : SecoesComplementares },
 							ctrl.index_secao_active ),
 				m.component(FormSecaoComplementar,
-							{ SecaoComplementar : SecoesComplementares[ctrl.index_secao_active()] })
+							SecoesComplementares[ctrl.index_secao_active()],
+							ctrl.index_secao_active)
 			])
 		]);
 	}
