@@ -24,7 +24,7 @@ var FormCNPJ = {
 					m('a.button.small[href=#]', { onclick : ctrl.pesquisar_cnpj.bind(this, ctrl) }, 'pesquisar')
 				])
 			]),
-			m('.text-center', 
+			m('.text-center',
 				m('button.big',  { onclick : ctrl.prosseguir.bind(this, ctrl) }, 'prosseguir')
 			)
 		]);

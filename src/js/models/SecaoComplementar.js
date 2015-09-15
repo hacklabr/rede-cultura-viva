@@ -8,7 +8,8 @@ var SecaoComplementar = function(data) {
 		icon         : '.icon-bell',
 		section_name : 'dados do responsável',
 		title        : '',
-		sub_title    : ''
+		sub_title    : '',
+		form         : {}
 	};
 
 	if ( typeof data == undefined ) {
@@ -24,7 +25,7 @@ var SecaoComplementar = function(data) {
 		section_name : m.prop(data.section_name),
 		title        : m.prop(data.title),
 		sub_title    : m.prop(data.sub_title),
-		form         : m.prop(data.form)
+		form         : data.form
 	}
 };
 
